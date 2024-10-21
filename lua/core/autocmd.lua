@@ -6,6 +6,17 @@ local autocmd = api.nvim_create_autocmd
 
 local opt_local = vim.opt_local
 
+-- 
+local group_init = augroup('init', {})
+autocmd({ 'BufReadPost', 'BufNewFile' }, {
+  group = group_init,
+  pattern = { '*.bat' },
+  callback = function()
+
+    opt_local.fileencoding = 'cp932'
+
+  end,
+})
 -- ターミナルモード
 local group_termopen = augroup('termopen', {})
 autocmd({ 'TermOpen' }, {
