@@ -4,17 +4,21 @@
 
 `make-symlink.bat` を実行することで、デフォルトの設定ファイルが置かれるパス `%LOCALAPPDATA%\nvim` にこのディレクトリのシンボリックリンクを作成します。
 
+このバッチファイルは PowerShell の `Start-Process` コマンドレットで管理者権限のコマンドプロンプトを呼び出し `mklink` コマンドを実行します。
+
 ### nvim-treesitter プラグインでエラーが出る
 
-nvim-treesitter プラグインを導入しているが、Neovim 起動時に以下のエラーが発生する場合がある。
+[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) プラグインを導入している。
+
+Neovim 起動時にこのプラグインが以下のエラーを発生させる場合がある。
 
 ```
 No C compiler found! "cc", "gcc", "clang", "cl", "zig" are not executable.
 ```
 
-Tree-Sitter が C のコンパイラを必要としており、こちらのプラグインでは環境変数 `%CC%` に設定されている、もしくは `%PATH%` に上記エラーに記載されているコンパイラの実行ファイルが含まれているかを確認する。
+Tree-Sitter は上記エラーに記載されている C のコンパイラのいずれかを必要としており、このプラグインは環境変数 `CC` に設定されている C  コンパイラ、もしくは環境変数 `PATH` に設定されているディレクトリ内に C コンパイラの実行ファイルが含まれているかを確認している。
 
-Windows に C コンパイラを導入する方法はいくつか存在するが、ここでは Zig をインストールして解決する。
+Windows に C コンパイラを導入する方法はいくつか存在するが、ここでは [WinGet](https://learn.microsoft.com/ja-jp/windows/package-manager/winget/) を使用し [Zig](https://ziglang.org/ja-JP/) をインストールして解決する方法を示す。
 
 ```powershell
 winget install -e --id zig.zig
