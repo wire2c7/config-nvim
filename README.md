@@ -2,9 +2,7 @@
 
 ## For Windows
 
-`make-symlink.bat` を実行することで、デフォルトの設定ファイルが置かれるパス `%LOCALAPPDATA%\nvim` にこのディレクトリのシンボリックリンクを作成します。
-
-このバッチファイルは PowerShell の `Start-Process` コマンドレットで管理者権限のコマンドプロンプトを呼び出し `mklink` コマンドを実行します。
+`make-symlink.bat` を実行することで、デフォルトの設定ファイルが置かれるパス `%LOCALAPPDATA%\nvim` にこのディレクトリのシンボリックリンク（実態はジャンクション）を作成します。
 
 ### nvim-treesitter プラグインでエラーが出る
 

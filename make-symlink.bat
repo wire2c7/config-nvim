@@ -1,35 +1,37 @@
 @echo off
 setlocal
 set bat_file_dir=%~dp0
+set target_path=%bat_file_dir:~0,-1%
 
 if defined LOCALAPPDATA (
-  set link_path=%LOCALAPPDATA%\nvim
+  set base_dir=%LOCALAPPDATA%
 ) else if defined USERPROFILE (
-  set link_path=%USERPROFILE%\AppData\Local\nvim
+  set base_dir=%USERPROFILE%\AppData\Local
 ) else if defined USERNAME (
-  set link_path=C:\Users\%USERNAME%\AppData\Local\nvim
+  set base_dir=C:\Users\%USERNAME%\AppData\Local
 )
 
-if not defined link_path (
+if not defined base_dir (
   echo "Could not set the path of the symbolic link."
   call :wait
   exit /b 127
-) else if exist "%link_path%" (
+)
+
+set link_path=%base_dir%\nvim
+if exist "%link_path%" (
   echo "%link_path%" already exists
   call :wait
   exit /b 1
 )
 
-echo Make symbolic link to "%link_path%"
-
-set target_path=%bat_file_dir%
-set arguments='/c,mklink,/d,\"%link_path%\",\"%target_path%\"'
+echo Make symbolic link from "%target_path%" to "%link_path%"
 
 powershell ^
-  -Command Start-Process ^
-  -FilePath "cmd" ^
-  -ArgumentList "%arguments%" ^
-  -Verb Runas
+  -Command New-Item ^
+    -ItemType Junction ^
+    -Path "%link_path%" ^
+    -Target "%target_path%"
+
 
 call :wait
 
