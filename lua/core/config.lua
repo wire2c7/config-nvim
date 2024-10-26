@@ -7,9 +7,6 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 local o = vim.opt
-o.encoding = 'utf-8'
-vim.scriptencoding = 'utf-8'
-o.ambiwidth = 'single'
 
 o.helplang = { 'ja', 'en' }
 o.history = 512
