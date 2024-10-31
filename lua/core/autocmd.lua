@@ -1,15 +1,15 @@
-local api = vim.api
+local au = require('utils.autocmd')
 local cmd = vim.cmd
 
-local augroup = api.nvim_create_augroup
-local autocmd = api.nvim_create_autocmd
+local augroup = au.group
+local autocmd = au.cmd
 
 local opt_local = vim.opt_local
 
 -- 
-local group_init = augroup('init', {})
+local group_vimrc = augroup('vimrc', {})
 autocmd({ 'BufReadPost', 'BufNewFile' }, {
-  group = group_init,
+  group = group_vimrc,
   pattern = { '*.bat' },
   callback = function()
 
@@ -17,13 +17,14 @@ autocmd({ 'BufReadPost', 'BufNewFile' }, {
 
   end,
 })
+
 -- 改行時自動コメント挿入
--- NOTE: おそらく動作しない。これらの記述はプラグイン等を読み込ませた後に移動させる。
 local group_off_auto_comment_insertion = augroup('off_auto_comment_insertion', {})
 autocmd({ 'BufEnter' }, {
   group = group_off_auto_comment_insertion,
   callback = function()
 
+    opt_local.formatoptions:remove('c')
     opt_local.formatoptions:remove('r')
     opt_local.formatoptions:remove('o')
 
