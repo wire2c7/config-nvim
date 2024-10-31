@@ -1,1 +1,1 @@
-require('keymaps.basis')
+require('keymaps.base')

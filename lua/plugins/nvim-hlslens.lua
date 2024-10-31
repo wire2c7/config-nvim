@@ -1,5 +1,5 @@
 local function set_keymaps()
-  local h = require('utils.keymap_helper')
+  local h = require('utils.keymapper')
   local nmap = h.nmap
   local cmd_str_start = [[<Cmd>lua require('hlslens').start()<CR>]]
 

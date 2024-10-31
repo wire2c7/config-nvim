@@ -1,7 +1,7 @@
 --[[
--- keymaps.basis
+-- keymaps.base
 --]]
-local keymapper = require('utils.keymap_helper')
+local keymapper = require('utils.keymapper')
 
 -- リーダーキー
 vim.g.mapleader = ' '
