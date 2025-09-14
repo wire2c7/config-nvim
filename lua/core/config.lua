@@ -116,11 +116,12 @@ o.tabstop = 2       -- タブ入力のスペース幅
 if vim.loop.os_uname().sysname == 'Windows_NT' then
   o.keywordprg = ':help'
 
-  o.shell = 'pwsh'
-  o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; '
+  o.shell = vim.fn.executable('pwsh') == 1 and 'pwsh' or 'powershell'
+  o.shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $PSStyle.OutputRendering = [System.Management.Automation.OutputRendering]::PlainText; '
+  o.shellquote = ''
   o.shellxquote = ''
-  o.shellredir = '2>&1 | out-file -encoding utf8'
-  o.shellpipe = '2>&1 | out-file -encoding utf8'
+  o.shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
+  o.shellpipe = '2>&1 | Out-File -Encoding utf8 %s; exit $LastExitCode'
 
 
   vim.env.PATH = vim.env.HOME .. '\\AppData\\Local\\mise\\shims;' .. vim.env.PATH
