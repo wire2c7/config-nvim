@@ -21,8 +21,6 @@ lsp.enable({
 })
 
 mapper.nmap('ge', diag.open_float)
-mapper.nmap('[d', diag.goto_prev)
-mapper.nmap(']d', diag.goto_next)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
