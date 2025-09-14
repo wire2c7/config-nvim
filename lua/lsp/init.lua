@@ -1,14 +1,23 @@
 local mapper = require('utils.keymapper')
 
-local buf = vim.lsp.buf
+local lsp = vim.lsp
+
+local buf = lsp.buf
 local diag = vim.diagnostic
 
-vim.lsp.enable({
+-- lsp.log.set_level(lsp.log.levels.ERROR)
+
+lsp.enable({
   -- Lua
   'lua_ls',
 
   -- Rust
   'rust_analyzer',
+
+  -- TypeScript (JavaScript)
+  'tsgo',
+  -- JavaScript, TypeScript, JSON
+  'biome',
 })
 
 mapper.nmap('ge', diag.open_float)
