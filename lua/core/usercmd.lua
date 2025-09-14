@@ -7,9 +7,5 @@ user_cmd('T', function(opts)
   cmd('wincmd j')
   cmd('resize 20')
 
-  if opts.args == '' and vim.fn.has('win64') == 1 then
-    cmd('terminal "C:\\Program Files\\PowerShell\\7\\pwsh.exe"')
-  else
-    cmd('terminal ' .. opts.args)
-  end
+  cmd('terminal ' .. opts.args)
 end, { nargs = '*' })
