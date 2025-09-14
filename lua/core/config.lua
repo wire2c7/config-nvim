@@ -115,4 +115,10 @@ o.tabstop = 2       -- タブ入力のスペース幅
 --
 if vim.loop.os_uname().sysname == 'Windows_NT' then
   o.keywordprg = ':help'
+
+  o.shell = 'pwsh'
+  o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; '
+  o.shellxquote = ''
+  o.shellredir = '2>&1 | out-file -encoding utf8'
+  o.shellpipe = '2>&1 | out-file -encoding utf8'
 end
