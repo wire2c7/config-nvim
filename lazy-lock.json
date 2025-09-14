@@ -21,5 +21,5 @@
   "satellite.nvim": { "branch": "main", "commit": "1febb774fed40f923a9955e0d029601bd4cabc42" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "transparent.nvim": { "branch": "main", "commit": "8ac59883de84e9cd1850ea25cf087031c5ba7d54" },
-  "vimdoc-ja": { "branch": "master", "commit": "6f87a0f07afa359422f35c568f038d9781a562e6" }
+  "vimdoc-ja": { "branch": "master", "commit": "7e4adaf05d94f37814cf0515da36b6b31e36b487" }
 }
