@@ -121,4 +121,9 @@ if vim.loop.os_uname().sysname == 'Windows_NT' then
   o.shellxquote = ''
   o.shellredir = '2>&1 | out-file -encoding utf8'
   o.shellpipe = '2>&1 | out-file -encoding utf8'
+
+
+  vim.env.PATH = vim.env.HOME .. '\\AppData\\Local\\mise\\shims;' .. vim.env.PATH
+else
+  vim.env.PATH = vim.env.HOME .. '/.local/share/mise/shims:' .. vim.env.PATH
 end
