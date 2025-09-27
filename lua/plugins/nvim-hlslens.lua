@@ -4,7 +4,7 @@ local M = {
     require('hlslens').setup()
 
     local h = require('utils.keymapper')
-    local nmap = h.nmap
+    local nmap = h.n
     local cmd_str_start = [[<Cmd>lua require('hlslens').start()<CR>]]
 
     nmap('n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR>]] .. cmd_str_start)

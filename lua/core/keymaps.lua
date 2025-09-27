@@ -54,10 +54,8 @@ local M = {
 }
 
 -- キー設定反映
-table.unpack = table.unpack or unpack
 for mode, keymaps in pairs(M) do
   for _, keymap in ipairs(keymaps) do
-    keymapper[mode .. 'map'](table.unpack(keymap))
+    keymapper[mode](unpack(keymap))
   end
 end
-
