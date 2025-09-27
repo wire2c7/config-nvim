@@ -26,10 +26,7 @@ o.backup = false
 o.swapfile = false
 
 -- クリップボード
---o.clipboard = {
---  'unnamedplus',
---  'unnamed'
---}
+o.clipboard:append('unnamedplus')
 
 -- バッファ
 o.hidden = true
