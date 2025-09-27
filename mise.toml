@@ -2,3 +2,12 @@
 "aqua:JohnnyMorganz/StyLua" = "latest"
 "aqua:Kampfkarren/selene" = "latest"
 "aqua:LuaLS/lua-language-server" = "latest"
+
+[tasks.lint]
+description = "Lint Lua codes"
+run = "selene . --pattern **/*.lua"
+
+[tasks.format]
+description = "Format Lua codes"
+run = "stylua --glob **/*.lua ."
+

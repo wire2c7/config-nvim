@@ -1,0 +1,7 @@
+std = "neovim"
+
+[lints]
+mixed_table = "allow"
+unused_variable = "warn"
+undefined_variable = "deny"
+
