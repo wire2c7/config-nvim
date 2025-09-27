@@ -33,6 +33,9 @@ local M = {
     -- quickfix
     { '[q', '<Cmd>cprevious<CR>' },
     { ']q', '<Cmd>cnext<CR>' },
+    -- 画面分割
+    { '<Leader>|', ':vsplit<CR>', { desc = 'Vertical split' } },
+    { '<Leader>-', ':split<CR>', { desc = 'Horizonal split' } },
   },
   -- ビジュアルモード
   v = {
